@@ -1,1 +1,3 @@
 myenv/
+
+**/secret.json
