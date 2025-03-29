@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import datetime
+import os
 import base64
 import gspread
 from gspread_dataframe import set_with_dataframe
