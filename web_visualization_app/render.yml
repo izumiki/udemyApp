@@ -5,3 +5,9 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: streamlit run app.py --server.port $PORT --server.enableCORS false
+cron:
+  - name: daily-scraper
+    schedule: "0 0 * * *"  
+    command: "python scrape/scraping.py"
+    env: python
+    plan: free
