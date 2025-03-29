@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import datetime
-
+import base64
 import gspread
 from gspread_dataframe import set_with_dataframe
 from google.oauth2.service_account import Credentials
@@ -35,6 +35,11 @@ def get_worksheet():
         'https://www.googleapis.com/auth/spreadsheets',
         'https://www.googleapis.com/auth/drive'
     ]
+
+    service_account_json = base64.b64decode(os.environ['SERVICE_ACCOUNT_JSON_B64']).decode('utf-8')
+
+    with open('service_account.json', 'w') as f:
+        f.write(service_account_json)
 
     credentials = Credentials.from_service_account_file(
         'service_account.json',
